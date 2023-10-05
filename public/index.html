@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./images/player.png" />
+    <title>Space Fighter</title>
+    <link href="./game.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div
+      class="h-full w-full intro-container absolute top-0 left-0 w-full h-hull flex items-center justify-center bg-[#000000c2]"
+    >
+      <div
+        class="intro flex justify-center items-center flex-col space-y-8 text-white"
+      >
+        <h1 class="font-bold text-4xl bg_move">The Space Fighter</h1>
+        <p class="font-bold text-3xl text-[#0ddfd9]">Hi there commander.</p>
+        <p class="font-bold">
+          Use the arrow keys <span class="control">&larr;</span>
+          <span class="control">&uarr;</span>
+          <span class="control">&rarr;</span>
+          <span class="control">&darr;</span> to move arround
+        </p>
+        <p class="font-bold">
+          Use <span class="spaceBar control">Spacebar</span> to shoot
+        </p>
+        <button id="gameStart" class="font-serif button-themed">
+          Start the game
+        </button>
+      </div>
+    </div>
+    <div class="game-container">
+      <div class="hidden">
+        <div class="flex gap-x-8">
+          <button id="gameResetStart" class="button-themed">Reset</button
+          ><button id="gamePause" class="button-themed">Pause</button>
+        </div>
+        <div>
+          <span>Score:</span><span id="score"></span><span>Life:</span
+          ><span id="lifeEle"></span>
+        </div>
+        <div><span id="msg"></span></div>
+      </div>
+
+      <div class="hidden">
+        <canvas id="cv" style="background: #000"></canvas>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="./player.js"></script>
+    <script type="text/javascript" src="./game.js"></script>
+  </body>
+</html>
