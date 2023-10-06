@@ -33,20 +33,24 @@
     </div>
     <div class="game-container">
       <div class="game hide" id="game">
-        <div>
+        <div class="mb-2 flex gap-y-2 flex-col">
           <div class="flex gap-x-8">
-            <button id="gameResetStart" class="button-themed">Reset</button
-            ><button id="gamePause" class="button-themed">Pause</button>
+            <button id="gameResetStart" class="button-themed hide font-serif">
+              Play again</button
+            ><button id="gamePause" class="button-themed font-serif">
+              Pause
+            </button>
           </div>
-          <div>
-            <span>Score:</span><span id="score"></span><span>Life:</span
-            ><span id="lifeEle"></span>
+          <div class="flex gap-x-8 font-bold">
+            <label><span>Score:</span><span id="score"></span></label>
+            <label><span>Life:</span><span id="lifeEle"></span></label>
           </div>
           <div><span id="msg"></span></div>
         </div>
         <div>
           <canvas id="cv" style="background: #000"></canvas>
         </div>
+        <div class="mobile-controls md:hidden"></div>
       </div>
     </div>
     <script type="text/javascript" src="./player.js"></script>

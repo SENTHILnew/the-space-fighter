@@ -4,10 +4,10 @@
 
 body {
   @apply w-[100vw] h-[100vh];
+  font-family: Copperplate, Papyrus, fantasy;
 }
 
 .intro {
-  font-family: Copperplate, Papyrus, fantasy;
   @apply text-2xl p-8;
   .control {
     @apply border-2 border-white p-1;

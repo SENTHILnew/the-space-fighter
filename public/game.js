@@ -35,7 +35,6 @@ var canvas = document.getElementById("cv"),
   (boss = null),
   (boss_50_flag = true),
   (boss_100_flag = true),
-  (restart = false),
   (continuegame = true);
 
 function enemy(x, y, dy, dx, img, width_enemy, height_enemy, rotation) {
@@ -76,7 +75,7 @@ function enemy(x, y, dy, dx, img, width_enemy, height_enemy, rotation) {
     delete enemyArray[this.id];
   };
 }
-function Boss(x, y, boosLife = 200) {
+function Boss(x, y, boosLife = 400) {
   this.x = x;
   this.y = y;
   this.width = 200;
@@ -156,15 +155,12 @@ class Game {
     canvas.height = height;
     canvas.width = width;
     this.player = new Player(this.ctx, this.width / 10, this.height / 20);
-    //  this.objects=new objects(objectCount,this.ctx,this.height);
   }
+
   play(currentTime) {
     this.clear();
     this.createBorder();
     this.player.draw();
-    // createEnemy();
-    //  this.objects.draw();
-    // this.objects.moveObjects();
     this.checkState();
     if (currentTime >= lastTime + enemyTimer) {
       lastTime = currentTime;
@@ -187,6 +183,7 @@ class Game {
       }
     } else {
       this.createMessage("You lose!");
+      enableRestart();
     }
   }
   createMessage(text) {
@@ -295,19 +292,15 @@ Startbutton.onclick = function (e) {
   introElement.classList.toggle("hide");
   const gameElement = document.getElementById("game");
   gameElement.classList.toggle("hide");
-  var game = new Game(canvas, width, height);
-  if (restart === false) {
-    reset();
-    game.play();
-    restart = true;
-  }
+  startGame();
 };
-var Restartbutton = document.getElementById("gameResetStart");
-Restartbutton.onclick = function (e) {
-  Restartbutton.blur();
-  restart = false;
-  game.clear();
+
+var restartbutton = document.getElementById("gameResetStart");
+restartbutton.onclick = function (e) {
+  restartbutton.blur();
+  startGame();
 };
+
 var pausetbutton = document.getElementById("gamePause");
 pausetbutton.onclick = function (e) {
   pausetbutton.blur();
@@ -324,13 +317,12 @@ pausetbutton.onclick = function (e) {
 };
 function reset() {
   score = 0;
-  enemyArray = [];
   enemyTimer = 1000;
   eneymyWidth = 27;
   enemyHeight = 27;
   enemyIndex = 0;
-  width = 250;
-  height = 500;
+  width = 300;
+  height = 600;
   lastTime = 0;
   Player_life = 5;
   collitionEnemyIndex = [];
@@ -343,6 +335,21 @@ function reset() {
   boss = null;
   boss_50_flag = true;
   boss_100_flag = true;
-  restart = false;
   continuegame = true;
+  enemyArray = [];
+}
+
+function startGame() {
+  reset();
+  var game = new Game(canvas, width, height);
+  game.play();
+}
+
+function enableRestart() {
+  const gameResetStart = document.getElementById("gameResetStart");
+  gameResetStart.classList.toggle("hide");
+  gameResetStart.onclick = function () {
+    gameResetStart.classList.toggle("hide");
+    startGame();
+  };
 }
