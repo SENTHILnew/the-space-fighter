@@ -179,19 +179,16 @@ class Game {
       if (continuegame) {
         requestAnimationFrame(this.play.bind(this));
       } else {
-        this.createMessage("Game Paused");
+        alert("Game Paused");
       }
     } else {
-      this.createMessage("You lose!");
+      alert("You lost!");
+      reset();
+      game.clear();
       enableRestart();
     }
   }
-  createMessage(text) {
-    this.ctx.beginPath();
-    this.ctx.font = "30px serif";
-    this.ctx.fillStyle = "red";
-    this.ctx.fillText(text, this.width / 10, this.height / 10);
-  }
+
   checkState() {
     let conditions = this.player.getBorders();
     if (conditions.xMin < 0) this.player.x += this.player.speed + 1;

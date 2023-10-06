@@ -6,21 +6,20 @@ body {
   @apply w-[100vw] h-[100vh];
   font-family: Copperplate, Papyrus, fantasy;
 }
-
+.control {
+  @apply border-2 border-white p-1;
+  line-height: 1rem;
+  display: inline-block;
+  height: 2rem;
+  text-align: center;
+  vertical-align: middle;
+  min-width: 2rem;
+}
+.spaceBar {
+  @apply leading-8 h-10;
+}
 .intro {
   @apply text-2xl p-8;
-  .control {
-    @apply border-2 border-white p-1;
-    line-height: 1rem;
-    display: inline-block;
-    height: 2rem;
-    text-align: center;
-    vertical-align: middle;
-    min-width: 2rem;
-  }
-  .spaceBar {
-    @apply leading-8 h-10;
-  }
 }
 .button-themed {
   @apply rounded-md p-2 transition ease-in-out hover:scale-110 bg-[purple] text-white px-4;

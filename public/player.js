@@ -51,7 +51,22 @@ function bullete(x, y, width, height, speed) {
     delete bulletsArray[this.id];
   };
 }
+function onArrowClick(e) {
+  onArrowMouseDown(e);
+  setTimeout(() => {
+    onArrowMouseUp(e);
+  }, 50);
+}
 
+const onArrowMouseDown = (e) => {
+  ARROW_MAP[e.code] = true;
+  if (e.code == "Space") {
+    creatBullete();
+  }
+};
+const onArrowMouseUp = (e) => {
+  ARROW_MAP[e.code] = false;
+};
 class Player {
   constructor(ctx, width, height) {
     this.ctx = ctx;
@@ -65,13 +80,10 @@ class Player {
     this.player_img.src = "images/player.png";
     // document.addEventListener('keydown',this.handlekeyEvent.bind(this))
     document.body.addEventListener("keydown", function (e) {
-      ARROW_MAP[e.code] = true;
-      if (e.code == "Space") {
-        creatBullete();
-      }
+      onArrowMouseDown(e);
     });
     document.body.addEventListener("keyup", function (e) {
-      ARROW_MAP[e.code] = false;
+      onArrowMouseUp(e);
     });
   }
 
