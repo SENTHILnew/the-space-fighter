@@ -55,7 +55,7 @@ function onArrowClick(e) {
   onArrowMouseDown(e);
   setTimeout(() => {
     onArrowMouseUp(e);
-  }, 50);
+  }, 150);
 }
 
 const onArrowMouseDown = (e) => {

@@ -22,7 +22,7 @@ var canvas = document.getElementById("cv"),
   (enemyHeight = 27),
   (enemyIndex = 0),
   (width = 300),
-  (height = 600),
+  (height = 500),
   (lastTime = 0),
   (Player_life = 5),
   (collitionEnemyIndex = []),
@@ -319,7 +319,7 @@ function reset() {
   enemyHeight = 27;
   enemyIndex = 0;
   width = 300;
-  height = 600;
+  height = 500;
   lastTime = 0;
   Player_life = 5;
   collitionEnemyIndex = [];
