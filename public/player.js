@@ -1,10 +1,10 @@
 /*Player and Bullet creation File*/
 var ARROW_MAP = {
-  37: false,
-  40: false,
-  39: false,
-  38: false,
-  32: false, //spacebar
+  ArrowUp: false,
+  ArrowDown: false,
+  ArrowRight: false,
+  ArrowLeft: false,
+  Space: false, //spacebar
 };
 var bulletsArray = [],
   bulletsIndex = 0,
@@ -65,13 +65,13 @@ class Player {
     this.player_img.src = "images/player.png";
     // document.addEventListener('keydown',this.handlekeyEvent.bind(this))
     document.body.addEventListener("keydown", function (e) {
-      ARROW_MAP[e.keyCode] = true;
-      if (e.keyCode == 32) {
+      ARROW_MAP[e.code] = true;
+      if (e.code == "Space") {
         creatBullete();
       }
     });
     document.body.addEventListener("keyup", function (e) {
-      ARROW_MAP[e.keyCode] = false;
+      ARROW_MAP[e.code] = false;
     });
   }
 
@@ -135,19 +135,19 @@ class Player {
     bulletsArray.forEach((a) => {
       a.update();
     });
-    if (ARROW_MAP[37]) {
+    if (ARROW_MAP["ArrowLeft"]) {
       this.x -= this.speed;
       player_x = this.x;
     }
-    if (ARROW_MAP[39]) {
+    if (ARROW_MAP["ArrowRight"]) {
       this.x += this.speed;
       player_x = this.x;
     }
-    if (ARROW_MAP[40]) {
+    if (ARROW_MAP["ArrowDown"]) {
       this.y += this.speed;
       player_y = this.y;
     }
-    if (ARROW_MAP[38]) {
+    if (ARROW_MAP["ArrowUp"]) {
       this.y -= this.speed;
       player_y = this.y;
     }

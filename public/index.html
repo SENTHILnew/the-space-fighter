@@ -10,6 +10,7 @@
   <body>
     <div
       class="h-full w-full intro-container absolute top-0 left-0 w-full h-hull flex items-center justify-center bg-[#000000c2]"
+      id="intro"
     >
       <div
         class="intro flex justify-center items-center flex-col space-y-8 text-white"
@@ -31,23 +32,23 @@
       </div>
     </div>
     <div class="game-container">
-      <div class="hidden">
-        <div class="flex gap-x-8">
-          <button id="gameResetStart" class="button-themed">Reset</button
-          ><button id="gamePause" class="button-themed">Pause</button>
+      <div class="game hide" id="game">
+        <div>
+          <div class="flex gap-x-8">
+            <button id="gameResetStart" class="button-themed">Reset</button
+            ><button id="gamePause" class="button-themed">Pause</button>
+          </div>
+          <div>
+            <span>Score:</span><span id="score"></span><span>Life:</span
+            ><span id="lifeEle"></span>
+          </div>
+          <div><span id="msg"></span></div>
         </div>
         <div>
-          <span>Score:</span><span id="score"></span><span>Life:</span
-          ><span id="lifeEle"></span>
+          <canvas id="cv" style="background: #000"></canvas>
         </div>
-        <div><span id="msg"></span></div>
-      </div>
-
-      <div class="hidden">
-        <canvas id="cv" style="background: #000"></canvas>
       </div>
     </div>
-
     <script type="text/javascript" src="./player.js"></script>
     <script type="text/javascript" src="./game.js"></script>
   </body>

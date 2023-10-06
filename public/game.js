@@ -34,6 +34,7 @@ var canvas = document.getElementById("cv"),
   (extra_enemy = false),
   (boss = null),
   (boss_50_flag = true),
+  (boss_100_flag = true),
   (restart = false),
   (continuegame = true);
 
@@ -75,12 +76,12 @@ function enemy(x, y, dy, dx, img, width_enemy, height_enemy, rotation) {
     delete enemyArray[this.id];
   };
 }
-function Boss(x, y) {
+function Boss(x, y, boosLife = 200) {
   this.x = x;
   this.y = y;
   this.width = 200;
   this.height = 100;
-  this.boos_life = 200;
+  this.boos_life = boosLife;
   this.img = new Image();
   this.speed = 0.5;
   this.img.src = "images/Boss.png";
@@ -258,9 +259,13 @@ class Game {
     }
     if (score > 100) {
       msgElement.innerText = `More enemy's ahead.`;
-      if (enemyTimer !== 250) {
-        enemyTimer = enemyTimer - 250;
+      if (boss_100_flag) {
+        boss = new Boss(10, 10, 1000);
+        boss_100_flag = false;
       }
+      /* if (enemyTimer !== 250) {
+        enemyTimer = enemyTimer - 250;
+      } */
     }
 
     scoreElm.innerText = score;
@@ -286,7 +291,10 @@ var game = new Game(canvas, width, height);
 var Startbutton = document.getElementById("gameStart");
 Startbutton.onclick = function (e) {
   Startbutton.blur();
-
+  const introElement = document.getElementById("intro");
+  introElement.classList.toggle("hide");
+  const gameElement = document.getElementById("game");
+  gameElement.classList.toggle("hide");
   var game = new Game(canvas, width, height);
   if (restart === false) {
     reset();
@@ -334,6 +342,7 @@ function reset() {
   extra_enemy = false;
   boss = null;
   boss_50_flag = true;
+  boss_100_flag = true;
   restart = false;
   continuegame = true;
 }
