@@ -14,6 +14,12 @@ body {
   text-align: center;
   vertical-align: middle;
   min-width: 2rem;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .spaceBar {
   @apply leading-8 h-10;
@@ -22,7 +28,13 @@ body {
   @apply text-2xl p-8;
 }
 .button-themed {
-  @apply rounded-md p-2 transition ease-in-out hover:scale-110 bg-[purple] text-white px-4;
+  @apply rounded-md p-2 transition ease-in-out hover:scale-110 bg-[purple] text-white px-4 shadow-2xl shadow-indigo-500/50 focus:outline-none focus:ring focus:ring-violet-300;
+  &:focus {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+  }
 }
 
 .bg_move {
