@@ -1,12 +1,12 @@
 /*Player and Bullet creation File*/
-var ARROW_MAP = {
+const ARROW_MAP = {
   ArrowUp: false,
   ArrowDown: false,
   ArrowRight: false,
   ArrowLeft: false,
   Space: false, //spacebar
 };
-var bulletsArray = [],
+let bulletsArray = [],
   bulletsIndex = 0,
   bullets_width = 8,
   bullets_height = 10,

@@ -120,11 +120,11 @@ function boom(x, y) {
   };
 }
 function createEnemy() {
-  var x = Math.random() * (width - eneymyWidth);
-  var y = enemyHeight;
-  var dy = 3;
-  var dx = 3;
-  var img = (enemy_img = new Image());
+  let x = Math.random() * (width - eneymyWidth);
+  let y = enemyHeight;
+  let dy = 3;
+  let dx = 3;
+  let img = (enemy_img = new Image());
   if (extra_enemy) {
     let random = Math.random();
     if (random < 0.2 || random > 0.7) {
@@ -144,7 +144,7 @@ function createEnemy() {
     img.src = "images/enemy.png";
   }
 
-  var rotation = Math.random();
+  let rotation = Math.random();
   new enemy(x, y, dy, dx, img, eneymyWidth, enemyHeight, rotation);
 }
 class Game {

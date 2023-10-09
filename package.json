@@ -4,12 +4,13 @@
   "description": "myGame served",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "concurrently --kill-others \"node index.js\" \"npm run build-css\"",
     "build-css": "npx tailwindcss -i ./public/game.scss -o ./public/game.css --watch"
   },
   "author": "senthilnathan",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^8.2.1",
     "express": "^4.18.2"
   },
   "engines": {
