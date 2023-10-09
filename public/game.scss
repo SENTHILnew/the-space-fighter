@@ -6,6 +6,11 @@ body {
   @apply w-[100vw] h-[100vh];
   font-family: Copperplate, Papyrus, fantasy;
 }
+.openCode {
+  z-index: 4;
+  filter: invert(1);
+  background: none;
+}
 .control {
   @apply border-2 border-white p-1;
   line-height: 1rem;
@@ -20,6 +25,9 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .spaceBar {
   @apply leading-8 h-10;

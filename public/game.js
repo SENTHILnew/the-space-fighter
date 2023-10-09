@@ -350,3 +350,7 @@ function enableRestart() {
     startGame();
   };
 }
+
+function openCode() {
+  window.open("https://github.com/SENTHILnew/the-space-fighter", "_blank");
+}
